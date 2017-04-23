@@ -1,4 +1,6 @@
-# 
+# spring-boot-docker-kubernetes-example
+
+### Docker integration
 
 To build docker image:
 ```
@@ -27,7 +29,9 @@ To be able to push image to docker hub you need to add the following to your mav
 	</servers>
 </settings>
 ```
-In Kubernetes add the ConfigMap using this yml file:
+### Kubernetes integration
+
+In Kubernetes add a ConfigMap using this yml file:
 ```
 kind: ConfigMap
 apiVersion: v1
@@ -36,7 +40,7 @@ metadata:
 data:
   bean.message: Hello World 2!
 ```
-In Kubernetes deploy spring-boot-docker-kubernetes-example as a pod:
+Then deploy spring-boot-docker-kubernetes-example as a pod:
 ```
 kubectl run spring-boot-docker-kubernetes-example --image=djhurley/spring-boot-docker-kubernetes-example
 ```
@@ -46,7 +50,7 @@ kubectl logs -f {spring-boot-docker-kubernetes-example pod name}
 ```
 If you change the property bean.message in the Kubernetes ConfigMap you will see the application automatically update the message live.
 
-Example output from logs when config refresh occurs:
+Here is an example output from the application logs when a config refresh occurs:
 ```
 The message is: Hello World 2!
 The message is: Hello World 2!
