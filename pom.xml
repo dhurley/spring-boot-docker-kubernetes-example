@@ -35,6 +35,13 @@
             <artifactId>spring-cloud-starter-kubernetes</artifactId>
             <version>LATEST</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/be.ordina/microservices-dashboard-server -->
+        <dependency>
+            <groupId>be.ordina</groupId>
+            <artifactId>microservices-dashboard-server</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>
