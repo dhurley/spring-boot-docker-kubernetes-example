@@ -69,3 +69,12 @@ The message is: Hello World 3!
 The message is: Hello World 3!
 The message is: Hello World 3!
 ```
+
+### Jenkins Tips
+Reset builds back to build number 1.
+```
+def job = Jenkins.instance.getItem("spring-boot-docker-kubernetes-example")
+job.builds.findAll { it.number > 0 && it.number < 100 }.each { it.delete() }
+job.nextBuildNumber = 1
+job.saveNextBuildNumber()
+```
