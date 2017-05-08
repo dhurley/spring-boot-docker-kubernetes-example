@@ -8,7 +8,7 @@ node {
                 buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')),
                 disableConcurrentBuilds(), [$class: 'GithubProjectProperty', displayName: '',
                 projectUrlStr: 'https://github.com/dhurley/spring-boot-docker-kubernetes-example.git/'],
-                pipelineTriggers([])])
+                pipelineTriggers([githubPush(), pollSCM('H/15 * * * *')])])
     }
 
     stage('Checkout'){
