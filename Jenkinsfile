@@ -17,7 +17,6 @@ node {
     }
 
     stage('Docker') {
-        def newApp = docker.build "djhurley/spring-boot-docker-kubernetes-example:0.0.1"
-        newApp.push()
+        sh 'mvn clean package docker:build'
     }
 }
