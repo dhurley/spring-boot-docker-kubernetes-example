@@ -1,9 +1,9 @@
 node {
     stage('Configure') {
         env.PATH = "${tool 'maven-3.5.0'}/bin:${env.PATH}"
+        env.PATH = "${tool 'docker-latest'}/bin:${env.PATH}"
         version = '1.0.' + env.BUILD_NUMBER
         currentBuild.displayName = version
-        tool name: 'docker-latest', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
 
         properties([
                 buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')),
